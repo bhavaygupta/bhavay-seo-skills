@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS launchd job for the nightly pull. launchd runs missed jobs after the Mac wakes, cron does not.
+  1. Replace /Users/you with your home folder in every path below.
+  2. Create the log folder first:  mkdir -p /Users/you/search-data/logs
+  3. Copy to ~/Library/LaunchAgents/com.example.gsc-ga4-pull.plist
+  4. Load it:   launchctl load ~/Library/LaunchAgents/com.example.gsc-ga4-pull.plist
+  5. Test now:  launchctl start com.example.gsc-ga4-pull
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.gsc-ga4-pull</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/you/.claude/skills/connect-gsc-ga4-claude-code/examples/nightly_pull.sh</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>GOOGLE_APPLICATION_CREDENTIALS</key>
+    <string>/Users/you/.config/gsc-ga4/key.json</string>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>6</integer>
+    <key>Minute</key>
+    <integer>15</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/you/search-data/logs/pull.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/you/search-data/logs/pull.log</string>
+</dict>
+</plist>

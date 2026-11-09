@@ -1,0 +1,7 @@
+# Needed by teardown.py. lint_brief.py uses the standard library only.
+beautifulsoup4>=4.11
+requests>=2.28
+
+# Optional. Tighter topic clusters in teardown.py. Uncomment one.
+# scikit-learn>=1.2           # TF-IDF clustering
+# sentence-transformers>=2.2  # bge embeddings. Pulls in PyTorch, which is large.
