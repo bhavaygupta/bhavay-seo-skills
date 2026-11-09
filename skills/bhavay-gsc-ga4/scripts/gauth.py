@@ -18,7 +18,7 @@ import time
 
 GSC_SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 GA4_SCOPE = "https://www.googleapis.com/auth/analytics.readonly"
-SETUP_URL = "https://bhavay.com/resources/skills/connect-gsc-ga4-claude-code"
+SETUP_URL = "https://bhavay.com/resources/skills/bhavay-gsc-ga4"
 ENABLE_URLS = {
     "Search Console API": "https://console.cloud.google.com/apis/library/searchconsole.googleapis.com",
     "Google Analytics Data API": "https://console.cloud.google.com/apis/library/analyticsdata.googleapis.com",

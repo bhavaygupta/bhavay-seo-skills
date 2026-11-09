@@ -1,12 +1,12 @@
 ---
-name: internal-linking-engine
+name: bhavay-internal-linking
 description: Builds an implementation-ready internal linking sheet for any website. Bundled Python scripts crawl a sitemap politely, pull Google Search Console page and query data, score every source paragraph against target pages with embeddings or TF-IDF, find exact-match anchor text, apply link guardrails and write a prioritized XLSX with the sentence to find, the words to link, the target URL and a reason for every link. Works with Screaming Frog MCP, SE Ranking, Semrush, DataForSEO, Apify, Ollama and Hugging Face models when the user has them. Use when asked for an internal linking tool, internal link suggestions, an internal link audit, internal link opportunities, anchor text ideas, orphan page fixes, which pages should link to a page, link equity to money pages or an internal linking plan for SEO.
 license: CC-BY-4.0
 ---
 
-# Internal linking engine
+# Bhavay's Internal Linking Engine
 
-By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/internal-linking-engine
+By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/bhavay-internal-linking
 
 ## Quick start
 
@@ -16,7 +16,7 @@ By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to 
 
 **You get.** `internal-links.xlsx` with one row per link. Each row has the exact sentence to find, the words to link, the target URL, a priority score from 0 to 100 and one line on why the link matters. A Summary tab holds the QA report and the similarity distribution.
 
-**Install.** Put this folder in `~/.claude/skills/internal-linking-engine/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install -r scripts/requirements.txt` once.
+**Install.** Put this folder in `~/.claude/skills/bhavay-internal-linking/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install -r scripts/requirements.txt` once.
 
 Find high-value internal links from source pages to target pages. Push authority and readers toward pages that rank but need help. Never stuff links.
 
@@ -52,7 +52,7 @@ Tool routes, model notes and memory tips are in [reference/tools.md](reference/t
 Scripts live in this skill's `scripts/` folder. Run them from a working folder such as `work/` so outputs stay together.
 
 ```bash
-S=path/to/internal-linking-engine/scripts
+S=path/to/bhavay-internal-linking/scripts
 
 # 1. Crawl. Polite by default. 1 request per second, robots.txt respected.
 python3 $S/crawl.py --sitemap https://example.com/sitemap.xml --out pages.jsonl

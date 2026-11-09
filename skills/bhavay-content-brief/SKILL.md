@@ -1,12 +1,12 @@
 ---
-name: seo-aeo-content-brief
+name: bhavay-content-brief
 description: Generates an SEO and AEO content brief for a target keyword or an existing URL that needs a refresh. Builds the brief from the live SERP, the AI answers in ChatGPT, Perplexity and Google AI Overviews, competitor teardowns, a coverage map of competitor headings and Search Console data. Ships a fill-in content brief template, a complete sample brief, a teardown script that extracts competitor headings, FAQs, schema and statistics and clusters them into must-cover topics, and a brief linter. Runs on Claude's own web search and browsing, and works with SE Ranking, Semrush, DataForSEO, Screaming Frog MCP, Apify, Ollama and Hugging Face embeddings when the user has them. Use when asked for a content brief, a content brief template, an SEO brief, an AEO or GEO brief, a writer brief, a refresh brief, a content outline, SERP analysis for a keyword, or a brief for a page that should rank in Google and get cited by AI engines.
 license: CC-BY-4.0
 ---
 
-# SEO and AEO content brief
+# Bhavay's SEO and AEO Content Brief
 
-By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/seo-aeo-content-brief
+By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/bhavay-content-brief
 
 ## Quick start
 
@@ -16,7 +16,7 @@ By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to 
 
 **You get.** One Markdown brief named `<keyword> - brief` that follows [templates/brief-template.md](templates/brief-template.md). It has the target, the page type and angle, a full outline with an instruction under every heading, must-cover topics, entities, sourced facts, FAQ, AEO rules, schema, links, a word count range and an evidence appendix. See [examples/sample-brief.md](examples/sample-brief.md) for a finished one.
 
-**Install.** Put this folder in `~/.claude/skills/seo-aeo-content-brief/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install beautifulsoup4 requests` once.
+**Install.** Put this folder in `~/.claude/skills/bhavay-content-brief/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install beautifulsoup4 requests` once.
 
 Turn a target keyword, or an existing URL that needs a refresh, into a brief a writer can execute without guessing. The brief carries instructions and evidence. It never contains drafted paragraphs. Writing the article is the writer's job.
 
@@ -47,7 +47,7 @@ Routes and settings for each tool are in [reference/tools.md](reference/tools.md
 ## Run it
 
 ```bash
-S=path/to/seo-aeo-content-brief/scripts
+S=path/to/bhavay-content-brief/scripts
 
 # After collecting the top 10 and the AI-cited URLs into serp_urls.txt, in SERP order.
 python3 $S/teardown.py --urls serp_urls.txt --out-prefix teardown
@@ -82,13 +82,13 @@ Cluster every competitor heading into topics. `teardown.py` does this.
 The thresholds scale when fewer than 10 pages were read. Skim the clusters before using them. Merge near-duplicates and split any cluster that mixes two ideas. Tune with `--threshold`.
 
 ### 5. Refresh mode, existing URLs only
-Crawl the live page and pull its Search Console queries for the last 3 complete months. Queries the page ranks for but never addresses become new sections. Cap the word count target at 1.4 times the live word count. Beyond that the page loses its intent. The `connect-gsc-ga4-claude-code` skill has a query script for this.
+Crawl the live page and pull its Search Console queries for the last 3 complete months. Queries the page ranks for but never addresses become new sections. Cap the word count target at 1.4 times the live word count. Beyond that the page loses its intent. The `bhavay-gsc-ga4` skill has a query script for this.
 
 ### 6. AEO requirements
 For every H2, specify the question it answers and require an answer-first opening of one or two sentences that stands alone if quoted. List the facts and statistics the section must include, each with a source URL, so the page earns citations. Check `teardown_stats.csv` for numbers competitors cite, then trace each one to its primary source before it goes in the brief.
 
 ### 7. Internal links
-Propose 3 to 6 internal link targets from the brand's own crawl with suggested anchors. The `internal-linking-engine` skill does this at scale.
+Propose 3 to 6 internal link targets from the brand's own crawl with suggested anchors. The `bhavay-internal-linking` skill does this at scale.
 
 ### 8. Assemble the brief
 Fill [templates/brief-template.md](templates/brief-template.md). Keep every section. Delete the guidance lines.

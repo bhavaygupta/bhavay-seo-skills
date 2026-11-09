@@ -3,4 +3,4 @@
 # cron has a minimal environment, so use absolute paths and set the key path explicitly.
 # Create the log folder first with `mkdir -p /home/you/search-data/logs`.
 
-15 6 * * * GOOGLE_APPLICATION_CREDENTIALS=/home/you/.config/gsc-ga4/key.json /bin/bash /home/you/.claude/skills/connect-gsc-ga4-claude-code/examples/nightly_pull.sh >> /home/you/search-data/logs/pull.log 2>&1
+15 6 * * * GOOGLE_APPLICATION_CREDENTIALS=/home/you/.config/gsc-ga4/key.json /bin/bash /home/you/.claude/skills/bhavay-gsc-ga4/examples/nightly_pull.sh >> /home/you/search-data/logs/pull.log 2>&1

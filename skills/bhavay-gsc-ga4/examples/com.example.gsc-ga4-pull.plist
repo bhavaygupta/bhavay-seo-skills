@@ -15,7 +15,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/you/.claude/skills/connect-gsc-ga4-claude-code/examples/nightly_pull.sh</string>
+    <string>/Users/you/.claude/skills/bhavay-gsc-ga4/examples/nightly_pull.sh</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>

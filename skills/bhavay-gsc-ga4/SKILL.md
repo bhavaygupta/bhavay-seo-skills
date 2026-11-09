@@ -1,12 +1,12 @@
 ---
-name: connect-gsc-ga4-claude-code
+name: bhavay-gsc-ga4
 description: Connects Google Search Console and Google Analytics 4 to Claude Code through the official Google Search Console API and GA4 Data API, with no MCP server or extra connector. Covers the Google Cloud project, service account versus OAuth, granting property access, credential handling, bundled Python scripts that test access and pull Search Console and GA4 reports to CSV with pagination, the data limits that trip people up, and scheduled pulls with cron or launchd. Use when asked to connect, set up or troubleshoot GSC or GA4 access in Claude Code, to pull Search Console or GA4 data with Python, to fix a 403 error or an empty site list, to automate a nightly SEO data export, or before any skill that needs Search Console or GA4 data.
 license: CC-BY-4.0
 ---
 
-# Connect GSC and GA4 to Claude Code
+# Bhavay's GSC and GA4 Connector for Claude Code
 
-By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/connect-gsc-ga4-claude-code
+By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to use, share and adapt under CC BY 4.0, with credit to bhavay.com. Docs and updates: https://bhavay.com/resources/skills/bhavay-gsc-ga4
 
 ## Quick start
 
@@ -16,7 +16,7 @@ By [Bhavay Gupta](https://bhavay.com), B2B SaaS SEO and AEO consultant. Free to 
 
 **You get.** A working credential, a list of every site and property it can read, and three scripts that pull Search Console and GA4 data to CSV. Optional nightly scheduling with cron or launchd.
 
-**Install.** Put this folder in `~/.claude/skills/connect-gsc-ga4-claude-code/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install -r scripts/requirements.txt` once.
+**Install.** Put this folder in `~/.claude/skills/bhavay-gsc-ga4/` for Claude Code, or upload it as a zip under Skills in the Claude app settings. Then run `pip install -r scripts/requirements.txt` once.
 
 Claude Code can call the Search Console API and the GA4 Data API directly with a small Python toolkit. For scheduled reporting and analysis this beats a connector. It is simpler, deterministic and version-controlled. Python does the pulls and the arithmetic. Claude reads the output and writes the analysis.
 
@@ -135,7 +135,7 @@ Add a short section to the project's `CLAUDE.md`.
 
 ```markdown
 ## Search data
-- GSC and GA4 pulls use the scripts in the connect-gsc-ga4-claude-code skill. Run the scripts. Never recompute their numbers by hand.
+- GSC and GA4 pulls use the scripts in the bhavay-gsc-ga4 skill. Run the scripts. Never recompute their numbers by hand.
 - Use complete date windows only. Weeks run Monday to Sunday. Never use rolling "last 7 days" presets.
 - Split brand and non-brand with the regex in `toolkit/brand_regex.txt`. Confirm it before reporting.
 - Write outputs to `data/` as CSV or JSON, then analyze.

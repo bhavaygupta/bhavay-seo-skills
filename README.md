@@ -1,20 +1,20 @@
-# Free Claude SEO skills
+# Bhavay's Claude SEO Skills
 
-Claude skills from a working B2B SaaS SEO and AEO stack, by [Bhavay Gupta](https://bhavay.com). A Claude skill is a folder of instructions and scripts that Claude and Claude Code load when a task needs them.
+Claude skills from a working B2B SaaS SEO and AEO stack, by [Bhavay Gupta](https://bhavay.com). A Claude skill is a folder of instructions and scripts that Claude and Claude Code load when a task needs them. Everything here is free.
 
 | Skill | What it does | Docs |
 |---|---|---|
-| [internal-linking-engine](skills/internal-linking-engine/SKILL.md) | An internal linking tool for Claude Code. Bundled scripts crawl your sitemap, read Search Console demand, match paragraphs to target pages and write a prioritized XLSX of links to add. | [bhavay.com](https://bhavay.com/resources/skills/internal-linking-engine) |
-| [seo-aeo-content-brief](skills/seo-aeo-content-brief/SKILL.md) | An SEO content brief generator with a [brief template](skills/seo-aeo-content-brief/templates/brief-template.md) and a [sample brief](skills/seo-aeo-content-brief/examples/sample-brief.md). Builds the brief from the live SERP, the AI answer, competitor pages and Search Console. | [bhavay.com](https://bhavay.com/resources/skills/seo-aeo-content-brief) |
-| [connect-gsc-ga4-claude-code](skills/connect-gsc-ga4-claude-code/SKILL.md) | Connect Google Search Console and GA4 to Claude Code through the official APIs, with no MCP server to run. Includes an access test, CSV pull scripts and nightly scheduling. | [bhavay.com](https://bhavay.com/resources/skills/connect-gsc-ga4-claude-code) |
+| [Bhavay's Internal Linking Engine](skills/bhavay-internal-linking/SKILL.md) | An internal linking tool for Claude Code. Bundled scripts crawl your sitemap, read Search Console demand, match paragraphs to target pages and write a prioritized XLSX of links to add. | [bhavay.com](https://bhavay.com/resources/skills/bhavay-internal-linking) |
+| [Bhavay's SEO and AEO Content Brief](skills/bhavay-content-brief/SKILL.md) | An SEO content brief generator with a [brief template](skills/bhavay-content-brief/templates/brief-template.md) and a [sample brief](skills/bhavay-content-brief/examples/sample-brief.md). Builds the brief from the live SERP, the AI answer, competitor pages and Search Console. | [bhavay.com](https://bhavay.com/resources/skills/bhavay-content-brief) |
+| [Bhavay's GSC and GA4 Connector](skills/bhavay-gsc-ga4/SKILL.md) | Connect Google Search Console and GA4 to Claude Code through the official APIs, with no MCP server to run. Includes an access test, CSV pull scripts and nightly scheduling. | [bhavay.com](https://bhavay.com/resources/skills/bhavay-gsc-ga4) |
 
 ## Install
 
 **Claude Code**
 
 ```bash
-git clone https://github.com/bhavay1234/claude-seo-skills.git
-cp -R claude-seo-skills/skills/* ~/.claude/skills/
+git clone https://github.com/bhavay1234/bhavay-seo-skills.git
+cp -R bhavay-seo-skills/skills/* ~/.claude/skills/
 ```
 
 **Claude (web or desktop)**

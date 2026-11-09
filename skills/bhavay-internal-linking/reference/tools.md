@@ -16,7 +16,7 @@ Best for large sites, JavaScript-rendered pages and sites where a full inlinks m
 
 ## Search Console
 
-- `scripts/gsc_pages.py` calls the Search Console API with a service account. Setup steps are in the `connect-gsc-ga4-claude-code` skill.
+- `scripts/gsc_pages.py` calls the Search Console API with a service account. Setup steps are in the `bhavay-gsc-ga4` skill.
 - No API access is fine. Export Pages and Queries from the Search Console Performance report. `match.py --gsc-pages` reads the Pages export as is. The interface export has no page and query pairs, so anchors fall back to titles.
 
 ## Keyword tools

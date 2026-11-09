@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Pull page and page+query data from the Google Search Console API.
 
-Optional step for the internal-linking-engine skill. Writes two CSVs:
+Optional step for the bhavay-internal-linking skill. Writes two CSVs:
   <prefix>_pages.csv          page, clicks, impressions, ctr, position
   <prefix>_page_queries.csv   page, query, clicks, impressions, ctr, position
 
@@ -63,7 +63,7 @@ def get_session():
             "Set GOOGLE_APPLICATION_CREDENTIALS to the path of a service account JSON key, for example\n"
             "  export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.config/gsc-ga4/key.json\n"
             "Then add the service account email as a user on the Search Console property.\n"
-            "Setup guide: https://bhavay.com/resources/skills/connect-gsc-ga4-claude-code"
+            "Setup guide: https://bhavay.com/resources/skills/bhavay-gsc-ga4"
         )
     return AuthorizedSession(creds), getattr(creds, "service_account_email", None)
 

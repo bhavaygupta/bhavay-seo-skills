@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Competitor teardown and coverage map for the seo-aeo-content-brief skill.
+"""Competitor teardown and coverage map for the bhavay-content-brief skill.
 
 Fetches each ranking or AI-cited URL politely, extracts what a brief needs, then
 clusters every H2 and H3 across pages into topics and counts how many pages
@@ -40,7 +40,7 @@ from collections import Counter, defaultdict
 from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
-UA = "SEO-AEO-Brief/1.0 (+https://bhavay.com/resources/skills/seo-aeo-content-brief)"
+UA = "SEO-AEO-Brief/1.0 (+https://bhavay.com/resources/skills/bhavay-content-brief)"
 STOP = set("""a an and are as at be by for from how in into is it its of on or that the this to vs what when where
 which who why will with your you our we can do does best top guide 2024 2025 2026 2027""".split())
 DEFAULT_THRESHOLDS = {"sentence-transformers": 0.78, "tfidf": 0.35, "overlap": 0.35}

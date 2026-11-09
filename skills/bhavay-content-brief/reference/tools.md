@@ -31,4 +31,4 @@ The default path is Claude's web search and browsing plus the bundled scripts. U
 ## Search Console for refresh mode
 
 - Pull page and query rows for the live URL for the last 3 complete months.
-- The `connect-gsc-ga4-claude-code` skill has the setup and `gsc_query.py`. Filter with `--filters "page equals https://example.com/blog/post"`.
+- The `bhavay-gsc-ga4` skill has the setup and `gsc_query.py`. Filter with `--filters "page equals https://example.com/blog/post"`.

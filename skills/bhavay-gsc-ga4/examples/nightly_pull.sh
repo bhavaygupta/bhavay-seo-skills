@@ -3,7 +3,7 @@
 # Edit the four settings below, then schedule it with cron or launchd.
 set -euo pipefail
 
-SCRIPTS="$HOME/.claude/skills/connect-gsc-ga4-claude-code/scripts"   # where this skill lives
+SCRIPTS="$HOME/.claude/skills/bhavay-gsc-ga4/scripts"   # where this skill lives
 OUT_DIR="$HOME/search-data"                                          # where CSVs go
 GSC_SITE="sc-domain:example.com"                                     # exact property string
 GA4_PROPERTY="123456789"                                             # numeric GA4 property ID

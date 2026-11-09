@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Polite site crawler for the internal-linking-engine skill.
+"""Polite site crawler for the bhavay-internal-linking skill.
 
 Reads a sitemap (sitemap index and .gz supported) or a plain URL list, fetches
 each page politely and writes one JSON object per page to a JSONL file.
@@ -51,7 +51,7 @@ except ImportError:
     trafilatura = None
 
 DEFAULT_UA = (
-    "InternalLinkingEngine/1.0 (+https://bhavay.com/resources/skills/internal-linking-engine)"
+    "InternalLinkingEngine/1.0 (+https://bhavay.com/resources/skills/bhavay-internal-linking)"
 )
 BOILERPLATE_TAGS = ["script", "style", "noscript", "template", "svg", "iframe",
                     "nav", "header", "footer", "aside", "form", "button", "dialog"]

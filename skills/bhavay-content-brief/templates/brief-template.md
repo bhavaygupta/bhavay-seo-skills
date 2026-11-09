@@ -1,6 +1,6 @@
 # <keyword> - brief
 
-> Template for the seo-aeo-content-brief skill. Every section below appears in every brief. The line in italics under each field is guidance. Delete the guidance lines when you fill the brief. Instructions only. Never draft article paragraphs.
+> Template for the bhavay-content-brief skill. Every section below appears in every brief. The line in italics under each field is guidance. Delete the guidance lines when you fill the brief. Instructions only. Never draft article paragraphs.
 
 ## Brief metadata
 
@@ -120,7 +120,7 @@
 
 - 
 
-*Internal is 3 to 6 targets from the brand's own crawl with suggested anchors. The internal-linking-engine skill does this at scale.*
+*Internal is 3 to 6 targets from the brand's own crawl with suggested anchors. The bhavay-internal-linking skill does this at scale.*
 *External lists primary sources the writer may cite. Never competitors from the Do not list.*
 
 ## Word count
