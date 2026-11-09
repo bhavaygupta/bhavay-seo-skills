@@ -13,7 +13,7 @@ Claude skills from a working B2B SaaS SEO and AEO stack, by [Bhavay Gupta](https
 **Claude Code**
 
 ```bash
-git clone https://github.com/bhavay1234/bhavay-seo-skills.git
+git clone https://github.com/bhavaygupta/bhavay-seo-skills.git
 cp -R bhavay-seo-skills/skills/* ~/.claude/skills/
 ```
 
