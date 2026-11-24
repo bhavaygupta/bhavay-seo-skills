@@ -52,33 +52,98 @@ If all your Search Console and GA4 access sits on one Google account, OAuth avoi
 
 ## 2. Google Cloud setup
 
-1. Create a project in Google Cloud Console. Creating projects inside a Workspace organization needs the Project Creator role. If you get a permission error, that's the role to ask your admin for.
-2. Enable **Google Search Console API** and **Google Analytics Data API**. Add the **Google Analytics Admin API** if you want to list GA4 properties automatically. `test_access.py` uses it.
-3. Create credentials.
-   - Service account. IAM and Admin, Service Accounts, create, then Keys, add key, JSON.
-   - OAuth. Google Auth Platform, create an OAuth client of type Desktop app. If the project lives in a Workspace organization, set the audience to Internal to avoid test-user caps and 7-day token expiry.
-4. These APIs are free within quotas. The Custom Search JSON API is a different, billable product. Don't enable it by accident.
+Every link below opens the exact screen in [Google Cloud Console](https://console.cloud.google.com/). Sign in with the Google account that will own the project. Check the project name in the top bar before each step, so everything lands in the same project.
+
+**Step 1. Create a project.**
+
+1. Open [New project](https://console.cloud.google.com/projectcreate).
+2. Name it something you will recognize later, for example `seo-data`. Leave Location as it is unless your company asks otherwise.
+3. Click **Create**, then pick the new project in the project picker at the top of the page.
+
+Creating projects inside a Workspace organization needs the Project Creator role. If you get a permission error, that is the role to ask your admin for. You can also reuse an existing project from the [project list](https://console.cloud.google.com/cloud-resource-manager).
+
+**Step 2. Turn on the APIs.** Open each link and click **Enable**.
+
+1. [Google Search Console API](https://console.cloud.google.com/apis/library/searchconsole.googleapis.com)
+2. [Google Analytics Data API](https://console.cloud.google.com/apis/library/analyticsdata.googleapis.com)
+3. [Google Analytics Admin API](https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com). Optional. `test_access.py` uses it to list your GA4 properties.
+
+The [Enabled APIs page](https://console.cloud.google.com/apis/dashboard) should now show all of them. These APIs are free within their quotas. The Custom Search JSON API is a different, billable product. Don't enable it by accident.
+
+**Step 3. Create the credential.** Pick the one you chose in section 1.
+
+*Service account*
+
+1. Open [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) and click **Create service account**.
+2. Give it a name like `seo-reader`. Skip the optional role and user steps, then click **Done**.
+3. Download the JSON key. Steps below, under **Download the JSON file**.
+4. Copy the account's email address. It ends in `iam.gserviceaccount.com` and you need it in section 3.
+
+*OAuth (desktop app)*
+
+1. Open [Google Auth Platform](https://console.cloud.google.com/auth/overview) and click **Get started** if it asks. Fill in the app name and your email.
+2. Under [Audience](https://console.cloud.google.com/auth/audience), choose **Internal** if the project lives in a Workspace organization. That avoids the test-user cap and the 7-day token expiry. Personal Gmail accounts can only pick External, so add yourself as a test user.
+3. Open [Clients](https://console.cloud.google.com/auth/clients), click **Create client**, choose **Desktop app**, then **Create**.
+4. Download the client JSON straight away. Steps below, under **Download the JSON file**.
+
+All credentials for the project are listed on the [Credentials page](https://console.cloud.google.com/apis/credentials).
+
+**Download the JSON file**
+
+*Service account key*
+
+1. Open [Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts) and check the project name in the top bar.
+2. Click the service account's email address to open it.
+3. Open the **Keys** tab.
+4. Click **Add key**, then **Create new key**.
+5. Leave **JSON** selected and click **Create**.
+6. The file downloads to your Downloads folder. Google names it after the project, for example `seo-data-123456-a1b2c3d4e5f6.json`.
+
+Google does not keep a copy. If you lose the file, delete that key on the same **Keys** tab and create a new one.
+
+If **Create new key** is greyed out, or you see "Service account key creation is disabled", your organization blocks keys with a policy. Many Workspace organizations do by default. Ask your admin for an exception on this project, or switch to OAuth below, which needs no key.
+
+*OAuth client JSON*
+
+1. Right after you click **Create** on the client, a dialog shows the client ID and secret. Click **Download JSON** in that dialog.
+2. Missed it? Open [Clients](https://console.cloud.google.com/auth/clients) and click the client's name. If the secret can still be downloaded, use the download button next to it. If not, click **Add secret**, then download the JSON it shows.
+3. The file downloads as `client_secret_<long id>.apps.googleusercontent.com.json`.
+
+Treat both files like passwords. Send people this guide, never the file. Anyone holding it can read every property the credential can see.
 
 ## 3. Grant property access
 
-- **Search Console.** Settings, Users and permissions, add the service account email. Restricted is enough for reading data.
-- **GA4.** Admin, Property access management, add the service account email as Viewer.
+Service accounts need to be added to each property, like a new teammate. OAuth users skip this step when their own account already has access.
 
-OAuth users skip this step when their own account already has access.
+**Search Console**
+
+1. Open [Search Console](https://search.google.com/search-console) and pick the property.
+2. Go to **Settings**, then **Users and permissions**, then **Add user**.
+3. Paste the service account email and choose **Restricted**. That is enough for reading data.
+
+**GA4**
+
+1. Open [Google Analytics](https://analytics.google.com/analytics/web/) and pick the property.
+2. Click **Admin** (the gear, bottom left), then **Property access management** under Property settings.
+3. Click **+**, then **Add users**, paste the service account email, choose **Viewer** and click **Add**.
+4. While you are in Admin, open **Property details** and copy the **Property ID**. It is a number, not the `G-` measurement ID.
 
 ## 4. Credentials, never in the repo
 
 Service account.
 
+Move the downloaded file out of Downloads and rename it. Change the file name in the first line to match yours.
+
 ```bash
-mkdir -p ~/.config/gsc-ga4 && mv ~/Downloads/key.json ~/.config/gsc-ga4/key.json
+mkdir -p ~/.config/gsc-ga4 && mv ~/Downloads/seo-data-123456-a1b2c3d4e5f6.json ~/.config/gsc-ga4/key.json
 chmod 600 ~/.config/gsc-ga4/key.json
 echo 'export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gsc-ga4/key.json"' >> ~/.zshrc
 ```
 
-OAuth. Save the client JSON as `~/.config/gsc-ga4/client_secret.json`, then sign in once.
+OAuth. Move the client JSON to `~/.config/gsc-ga4/client_secret.json`, then sign in once.
 
 ```bash
+mkdir -p ~/.config/gsc-ga4 && mv ~/Downloads/client_secret_*.json ~/.config/gsc-ga4/client_secret.json
 pip install google-auth-oauthlib
 python3 scripts/oauth_login.py --client-secret ~/.config/gsc-ga4/client_secret.json
 echo 'export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gsc-ga4/token.json"' >> ~/.zshrc
